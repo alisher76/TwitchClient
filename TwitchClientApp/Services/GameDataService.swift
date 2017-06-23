@@ -20,7 +20,6 @@ class GameDataService {
         var nameString, imageUrlString: String!
         
         request(url).responseJSON { (responce) in
-            print(responce)
             if let JSON = responce.result.value as? [String:Any] {
                 if let topGamesArray = JSON["top"] as? [[String:Any]], topGamesArray.count > 0 {
                     for i in topGamesArray {

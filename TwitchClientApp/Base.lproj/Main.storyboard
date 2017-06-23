@@ -6,8 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoMincho.ttc">
+            <string>HiraMinProN-W6</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Games View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -74,11 +81,126 @@
                     <connections>
                         <outlet property="gamesCollectionView" destination="e7k-iI-E3b" id="xSK-dR-2cc"/>
                         <outlet property="loadingIndicator" destination="uGA-1t-2N5" id="Vc3-7w-ZKL"/>
+                        <segue destination="7pp-Ds-AX2" kind="show" identifier="ShowStreamVC" id="FYN-qv-gZd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="138.98050974512745"/>
+        </scene>
+        <!--Stream View Controller-->
+        <scene sceneID="ojY-VN-AGI">
+            <objects>
+                <viewController id="7pp-Ds-AX2" customClass="StreamViewController" customModule="TwitchClientApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A3B-m2-tCj"/>
+                        <viewControllerLayoutGuide type="bottom" id="7ay-iI-qIh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kwd-Oo-Vyh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GI6-CB-K3h">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StreamCell" rowHeight="200" id="eIS-Io-wil" customClass="StreamTableViewCell" customModule="TwitchClientApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eIS-Io-wil" id="91V-bN-gke">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fUQ-1k-aw6">
+                                                    <rect key="frame" x="8" y="8" width="375" height="190"/>
+                                                    <color key="backgroundColor" red="0.1744270920753479" green="0.27908530831336975" blue="0.54903537034988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="TR8-rP-I13">
+                                                    <rect key="frame" x="12" y="119.5" width="187.5" height="57"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Broadcaster" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhw-88-Cti">
+                                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="30.5"/>
+                                                            <color key="backgroundColor" red="0.1744270920753479" green="0.27908530831336975" blue="0.54903537034988403" alpha="0.48335830479452052" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="14"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    StreamTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDy-C6-Agw">
+                                                            <rect key="frame" x="0.0" y="28.5" width="187.5" height="20"/>
+                                                            <color key="backgroundColor" red="0.1744270920753479" green="0.27908530831336975" blue="0.54903537034988403" alpha="0.51800620719178081" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="9"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      Viewers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2h-Yn-3Dx">
+                                                            <rect key="frame" x="0.0" y="46.5" width="187.5" height="10.5"/>
+                                                            <color key="backgroundColor" red="0.1744270920753479" green="0.27908530831336975" blue="0.54903537034988403" alpha="0.49143835616438358" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="7"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fUQ-1k-aw6" firstAttribute="trailing" secondItem="91V-bN-gke" secondAttribute="trailingMargin" id="FUr-dO-cUF"/>
+                                                <constraint firstAttribute="bottom" secondItem="TR8-rP-I13" secondAttribute="bottom" multiplier="1.1" constant="5.5" id="QdE-HN-ySp"/>
+                                                <constraint firstItem="fUQ-1k-aw6" firstAttribute="leading" secondItem="91V-bN-gke" secondAttribute="leadingMargin" id="VFd-DD-nto"/>
+                                                <constraint firstItem="TR8-rP-I13" firstAttribute="height" secondItem="fUQ-1k-aw6" secondAttribute="height" multiplier="0.3" id="bzh-IO-6kp"/>
+                                                <constraint firstItem="fUQ-1k-aw6" firstAttribute="top" secondItem="91V-bN-gke" secondAttribute="topMargin" id="bzi-jl-Y4W"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fUQ-1k-aw6" secondAttribute="bottom" constant="-6.5" id="klx-8d-VTf"/>
+                                                <constraint firstItem="TR8-rP-I13" firstAttribute="leading" secondItem="91V-bN-gke" secondAttribute="leading" constant="12" id="tWr-Wg-W2w"/>
+                                                <constraint firstItem="TR8-rP-I13" firstAttribute="width" secondItem="fUQ-1k-aw6" secondAttribute="width" multiplier="0.5" id="zv9-4W-vFJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="broadcasterName" destination="mhw-88-Cti" id="Axu-u8-J7R"/>
+                                            <outlet property="streamImageView" destination="fUQ-1k-aw6" id="WRU-kN-nQb"/>
+                                            <outlet property="streamTitle" destination="cDy-C6-Agw" id="7Tr-IC-Dn8"/>
+                                            <outlet property="streamViewers" destination="e2h-Yn-3Dx" id="hM1-0z-vQK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7pp-Ds-AX2" id="o50-zX-btK"/>
+                                    <outlet property="delegate" destination="7pp-Ds-AX2" id="iJV-X7-Jdw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GI6-CB-K3h" firstAttribute="top" secondItem="A3B-m2-tCj" secondAttribute="bottom" id="KNq-gG-JGT"/>
+                            <constraint firstItem="GI6-CB-K3h" firstAttribute="leading" secondItem="Kwd-Oo-Vyh" secondAttribute="leading" id="iuV-TB-Nz4"/>
+                            <constraint firstItem="7ay-iI-qIh" firstAttribute="top" secondItem="GI6-CB-K3h" secondAttribute="bottom" id="xV1-Hn-hF9"/>
+                            <constraint firstAttribute="trailing" secondItem="GI6-CB-K3h" secondAttribute="trailing" id="zKw-Ub-nVw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="streamsTableView" destination="GI6-CB-K3h" id="a9Z-EL-nhf"/>
+                        <segue destination="SDS-Lx-a6u" kind="show" identifier="showChannel" id="m6y-Vp-WPe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzs-Yi-PiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1240.8" y="152.47376311844079"/>
+        </scene>
+        <!--Channel View Controller-->
+        <scene sceneID="kfm-2W-mAa">
+            <objects>
+                <viewController id="SDS-Lx-a6u" customClass="ChannelViewController" customModule="TwitchClientApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t6N-ih-OFy"/>
+                        <viewControllerLayoutGuide type="bottom" id="DAt-WP-lrz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Wj-33-sZs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U1M-98-r4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2055.1999999999998" y="157.87106446776613"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ida-fs-7FS">

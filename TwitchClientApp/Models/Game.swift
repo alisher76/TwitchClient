@@ -21,14 +21,13 @@ class Game {
     }
     
     func downloadGameImage(completed: @escaping DownloadComplete) {
-        request(gameImageUrl).responseData { (responce) in
-            if let data = responce.result.value{
-                if let image = UIImage(data: data){
-                self.gameImage = image
-              }
-          }
-        completed()
-      }
+        request(self.gameImageUrl).responseData { (response) in
+            if let data = response.result.value {
+                if let image = UIImage(data: data) {
+                    self.gameImage = image
+                }
+            }
+            completed()
+        }
     }
-    
 }
